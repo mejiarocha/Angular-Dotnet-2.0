@@ -7,7 +7,7 @@
 <app-spinner *ngIf="loading"></app-spinner>
 
 
-<div *ngIf="dataSource.data.length > 0" class="container">
+<div class="container">
 
     <mat-form-field>
         <mat-label>Filtro</mat-label>
@@ -48,22 +48,23 @@
         <!-- Position Column -->
         <ng-container matColumnDef="acciones">
             <th mat-header-cell *matHeaderCellDef>
-                <button [routerLink]="['/agregarMascota']" class="acept-btn" mat-raised-button color="primary">Aceptar</button>
+                <button [routerLink]="['/agregarMascota']" class="acept-btn" mat-raised-button color="primary">Agregar</button>
             </th>
             <td mat-cell *matCellDef="let element">
-              
+
                 <mat-icon routerLink="/verMascota/{{element.id}}" class="search-icon" matTooltip="Ver" fontIcon="search"></mat-icon>
-                <mat-icon [routerLink]="['/editarMascota/1']" class="edit-icon" matTooltip="Editar" fontIcon="edit"></mat-icon>
+                <mat-icon [routerLink]="['/editarMascota', element.id]" class="edit-icon" matTooltip="Editar" fontIcon="edit"></mat-icon>
                 <mat-icon (click)="eliminarMascota(element.id)" class="delete-icon" matTooltip="Eliminar" fontIcon="delete"></mat-icon>
+
             </td>
           </ng-container>
 
-<!--[routerLink]="['/verMascota/{{ element.id }}']"  -->
+<!--[routerLink]="['/verMascota',element.id]"  -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
   <mat-paginator
-    [pageSizeOptions]="[5, 10, 20]"
+    [pageSizeOptions]="[10, 20, 50]"
     showFirstLastButtons
     aria-label="Select page of periodic elements"
   >

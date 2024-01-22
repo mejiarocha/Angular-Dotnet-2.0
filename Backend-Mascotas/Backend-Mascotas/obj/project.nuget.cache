@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Aob+ut/coC19xWqA5V3HDpl4NYlAVU1AtCQ40foTuzC7aX6Fetnjw+4pSoi5wEx5ScnsXFW4IQsgREwjgM3quQ==",
+  "dgSpecHash": "ut6APvZ+UV9BeQP8xAnX7cJvcKvxBV6KUKZ4A0zJkcR4BM0RATwyGuIHJVpTnBGHWYp5kShYh0iCfYiRWPrKuA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Juan Andres Mejia\\Documents\\GitHub\\Angular-Dotnet-2.0\\Backend-Mascotas\\Backend-Mascotas\\Backend-Mascotas.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Juan Andres Mejia\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Juan Andres Mejia\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Juan Andres Mejia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\Juan Andres Mejia\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Juan Andres Mejia\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Juan Andres Mejia\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Juan Andres Mejia\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Juan Andres Mejia\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.26\\microsoft.entityframeworkcore.6.0.26.nupkg.sha512",

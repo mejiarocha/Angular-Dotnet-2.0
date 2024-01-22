@@ -1,4 +1,5 @@
-﻿using Backend_Mascotas.Models;
+﻿using AutoMapper;
+using Backend_Mascotas.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,9 +12,12 @@ namespace Backend_Mascotas.Controllers
 	{
 		private readonly AplicationDbContext _context;
 
-		public MascotaController(AplicationDbContext context)
+		private readonly IMapper _mapper;
+
+		public MascotaController(AplicationDbContext context, IMapper mapper)
 		{
 			_context = context;
+			_mapper = mapper;
 		}
 
 		[HttpGet]
@@ -71,5 +75,55 @@ namespace Backend_Mascotas.Controllers
 				return BadRequest(ex.Message);
 			}
 		}
-	}
+
+		[HttpPost]
+		public async Task<IActionResult> Post(Mascota mascota)
+		{
+			try
+			{
+				mascota.FechaCreacion = DateTime.Now;
+				_context.Add(mascota);
+				await _context.SaveChangesAsync();
+				return CreatedAtAction("Get", new { id = mascota.Id }, mascota);
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+
+		[HttpPut("{id}")]
+		public async Task<IActionResult> Put(int id, Mascota mascota)
+		{
+			try
+			{
+				if(id != mascota.Id)
+				{
+					return BadRequest();
+				}
+
+				var mascotaItem = await _context.Mascota.FindAsync(id);
+
+				if (mascotaItem == null)
+				{
+					return NotFound();
+				}
+
+				mascotaItem.Nombre = mascota.Nombre;
+				mascotaItem.Edad = mascota.Edad;
+				mascotaItem.Raza = mascota.Raza;
+				mascotaItem.Color = mascota.Color;
+				mascotaItem.Peso = mascota.Peso;
+				
+
+				await _context.SaveChangesAsync();
+				return NoContent();
+			}
+			catch(Exception ex) 
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+	} 
 }
+
