@@ -1,4 +1,5 @@
 using Backend_Mascotas.Models;
+using Backend_Mascotas.Models.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,10 @@ builder.Services.AddDbContext<AplicationDbContext>(options =>
 // AutoMapper
 
 builder.Services.AddAutoMapper(typeof(Program));
+
+// Add service para injeccion de dependencias
+
+builder.Services.AddScoped<IMascotaRpository, MascotaRepository>();
 
 
 var app = builder.Build();
