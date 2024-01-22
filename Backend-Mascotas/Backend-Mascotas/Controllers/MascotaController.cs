@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Backend_Mascotas.Models;
+using Backend_Mascotas.Models.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,10 @@ namespace Backend_Mascotas.Controllers
 			try
 			{
 				var listMascotas = await _context.Mascota.ToListAsync();
-				return Ok(listMascotas);
+
+				var listMascotasDTO = _mapper.Map<IEnumerable<MascotaDTO>>(listMascotas);
+
+				return Ok(listMascotasDTO);
 			}
 			catch (Exception ex)
 			{
@@ -45,7 +49,11 @@ namespace Backend_Mascotas.Controllers
 				{
 					return NotFound();
 				}
-				return Ok(mascota);
+
+				// objeto mappeado al dto para devolver
+				var mascotaDTO = _mapper.Map<MascotaDTO>(mascota);
+
+				return Ok(mascotaDTO);
 			}
 			catch(Exception ex)
 			{
@@ -77,14 +85,19 @@ namespace Backend_Mascotas.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Post(Mascota mascota)
+		public async Task<IActionResult> Post(MascotaDTO mascotaDTO)
 		{
 			try
 			{
+				var mascota = _mapper.Map<Mascota>(mascotaDTO);
+
 				mascota.FechaCreacion = DateTime.Now;
 				_context.Add(mascota);
 				await _context.SaveChangesAsync();
-				return CreatedAtAction("Get", new { id = mascota.Id }, mascota);
+
+				var mascotaItemDTO = _mapper.Map<MascotaDTO>(mascota);
+
+				return CreatedAtAction("Get", new { id = mascotaItemDTO.Id }, mascotaItemDTO);
 			}
 			catch (Exception ex)
 			{
@@ -93,10 +106,13 @@ namespace Backend_Mascotas.Controllers
 		}
 
 		[HttpPut("{id}")]
-		public async Task<IActionResult> Put(int id, Mascota mascota)
+		public async Task<IActionResult> Put(int id, MascotaDTO mascotaDTO)
 		{
 			try
 			{
+
+				var mascota = _mapper.Map<Mascota>(mascotaDTO);
+
 				if(id != mascota.Id)
 				{
 					return BadRequest();
