@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend-Mascotas", "Backend-Mascotas\Backend-Mascotas.csproj", "{1F50F1CA-8761-4281-B772-3626920A5D5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F50F1CA-8761-4281-B772-3626920A5D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F50F1CA-8761-4281-B772-3626920A5D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F50F1CA-8761-4281-B772-3626920A5D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F50F1CA-8761-4281-B772-3626920A5D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {909FA3DF-AD09-430A-AF4C-52E3415B4BCF}
+	EndGlobalSection
+EndGlobal
